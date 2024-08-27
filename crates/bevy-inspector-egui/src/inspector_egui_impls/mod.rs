@@ -1,6 +1,7 @@
 //! Custom UI implementations for specific types. Check [`InspectorPrimitive`] for an example.
 
 use crate::{inspector_components::Name, reflect_inspector::{errors::no_multiedit, InspectorUi}};
+use bevy_color::Color;
 use bevy_reflect::{FromType, Reflect, ReflectDeserialize, ReflectSerialize, TypePath, TypeRegistry};
 use bevy_utils::Instant;
 use std::{
@@ -271,6 +272,8 @@ pub fn register_std_impls(type_registry: &mut TypeRegistry) {
     type_registry.register::<Cow<'static, std::path::Path>>();
     type_registry.register::<bevy_utils::Duration>();
     type_registry.register::<Instant>();
+    
+    type_registry.register::<Color>();
 
     add_of_with_many::<f32>(type_registry, std_impls::number_ui_many::<f32>);
     add_of_with_many::<f64>(type_registry, std_impls::number_ui_many::<f64>);
