@@ -274,6 +274,7 @@ pub fn register_std_impls(type_registry: &mut TypeRegistry) {
     type_registry.register::<Instant>();
     
     type_registry.register::<Color>();
+    type_registry.register::<bevy_ecs::event::Events<bevy_input::keyboard::KeyboardFocusLost>>();
 
     add_of_with_many::<f32>(type_registry, std_impls::number_ui_many::<f32>);
     add_of_with_many::<f64>(type_registry, std_impls::number_ui_many::<f64>);
